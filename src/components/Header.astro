@@ -1,0 +1,75 @@
+---
+const navItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Projetos', path: '/projects' },
+  { name: 'Contato', path: '/contact' },
+];
+
+const { pathname } = Astro.url;
+---
+
+<header class="header">
+  <nav class="container nav-container">
+    <a href="/" class="logo">
+      <span class="logo-text">Portfolio</span>
+    </a>
+    <ul class="nav-links">
+      {navItems.map((item) => (
+        <li>
+          <a 
+            href={item.path} 
+            class:list={[
+              "nav-link",
+              { active: pathname === item.path || (item.path !== '/' && pathname.startsWith(item.path)) }
+            ]}
+          >
+            {item.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(var(--bg-color), 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--secondary-text);
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--accent-color);
+  }
+
+  .nav-link.active {
+    font-weight: 600;
+  }
+</style>

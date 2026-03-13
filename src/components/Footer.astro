@@ -1,0 +1,46 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-container">
+    <p>&copy; {currentYear} Dev Portfolio. Todos os direitos reservados.</p>
+    <div class="social-links">
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 3rem 0;
+    margin-top: 5rem;
+    border-top: 1px solid var(--card-border);
+    color: var(--secondary-text);
+    font-size: 0.875rem;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .social-links a:hover {
+    color: var(--accent-color);
+  }
+
+  @media (max-width: 640px) {
+    .footer-container {
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+    }
+  }
+</style>
