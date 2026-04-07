@@ -53,13 +53,13 @@ const categories = [
         name: "Node.js",
         level: 5,
         icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.585-.203.703-.25 1.328-.604.065-.037.151-.023.218.017l2.256 1.339c.082.045.197.045.272 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.053-.192-.137-.242l-8.791-5.072c-.081-.047-.189-.047-.271 0L3.075 6.68C2.99 6.729 2.936 6.825 2.936 6.921v10.15c0 .097.054.189.139.235l2.409 1.392c1.307.654 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.112.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675c-.57-.329-.922-.945-.922-1.604V6.921c0-.659.353-1.275.922-1.603l8.795-5.082c.557-.315 1.296-.315 1.848 0l8.794 5.082c.57.329.924.944.924 1.603v10.15c0 .659-.354 1.273-.924 1.604l-8.794 5.078c-.525.158-.846.244-1.175.244z M19.099 13.993c0-1.9-1.284-2.406-3.987-2.763-2.731-.361-3.009-.548-3.009-1.187 0-.528.235-1.233 2.258-1.233 1.807 0 2.473.389 2.747 1.607.024.115.129.199.247.199h1.141c.071 0 .138-.031.186-.081a.248.248 0 0 0 .067-.196c-.177-2.098-1.571-3.076-4.388-3.076-2.508 0-4.004 1.058-4.004 2.833 0 1.925 1.488 2.457 3.895 2.695 2.88.282 3.103.703 3.103 1.269 0 .983-.789 1.402-2.642 1.402-2.327 0-2.839-.584-3.011-1.742-.02-.124-.126-.215-.253-.215h-1.137c-.141 0-.254.112-.254.253 0 1.482.806 3.248 4.655 3.248 2.785.001 4.383-1.096 4.383-3.074z"/></svg>`,
-        desc: "Express e REST APIs",
+        desc: "Express e Fastify",
       },
       {
         name: "Java",
         level: 4,
         icon: `<svg fill="#989898" height="200px" width="200px" version="1.1" id="XMLID_198_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="java"> <g> <path d="M9,24c-5,0-9-4-9-9V8h18v2.5c0.6-0.3,1.3-0.5,2-0.5c2.2,0,4,1.8,4,4s-1.8,4-4,4c-0.9,0-1.6-0.3-2.3-0.7 C16.7,21.1,13.2,24,9,24z M2,10v5c0,3.9,3.1,7,7,7s7-3.1,7-7v-5H2z M18,14c0,1.1,0.9,2,2,2s2-0.9,2-2s-0.9-2-2-2S18,12.9,18,14z M13,6h-2V2h2V6z M10,6H8V0h2V6z M7,6H5V2h2V6z"></path> </g> </g> </g></svg>`,
-        desc: "Desenvolvimento backend com Spring Boot e APIs",
+        desc: " Spring Boot e APIs",
       },
       {
         name: "Python",
@@ -199,7 +199,6 @@ const categories = [
     margin: 0;
   }
 
-  /* Bento Grid */
   .bento-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -236,7 +235,6 @@ const categories = [
     background: #a78bfa;
   }
 
-  /* Colored left border */
   .bento-card {
     border-left-width: 3px;
   }
@@ -258,7 +256,6 @@ const categories = [
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 
-  /* Card Header */
   .card-header {
     display: flex;
     align-items: center;
@@ -286,14 +283,12 @@ const categories = [
     letter-spacing: 0.05em;
   }
 
-  /* Skills Grid inside card */
   .skills-grid {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
   }
 
-  /* Individual Skill */
   .skill-item {
     display: grid;
     grid-template-columns: 36px 1fr auto;
@@ -350,7 +345,6 @@ const categories = [
     text-overflow: ellipsis;
   }
 
-  /* Dot Rating */
   .skill-dots {
     display: flex;
     gap: 3px;
@@ -376,7 +370,6 @@ const categories = [
     transform: scale(1.15);
   }
 
-  /* Responsive */
   @media (min-width: 768px) {
     .bento-grid {
       grid-template-columns: repeat(2, 1fr);

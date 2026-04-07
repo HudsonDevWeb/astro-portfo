@@ -1,17 +1,19 @@
 ---
 const experiences = [
   {
-    company: "[Nome da Empresa]",
-    role: "[Cargo Ocupado]",
-    period: "[Mês/Ano – Mês/Ano]",
-    description: "[Descreva aqui suas responsabilidades e conquistas nesta posição. Ex: Desenvolvi e mantive APIs RESTful utilizando Node.js e TypeScript, lidando com milhares de requisições por dia.]"
+    company: "Megazap",
+    role: "Desenvolvedor Full Stack",
+    period: "2023 - Presente",
+    description:
+      "Desenvolvimento de soluções web escaláveis utilizando tecnologias modernas. Responsável pela arquitetura de sistemas, integração de APIs e otimização de performance. Colaboração direta com equipes multidisciplinares para entregar produtos de alta qualidade.",
   },
   {
-    company: "[Nome da Empresa]",
-    role: "[Cargo Ocupado]",
-    period: "[Mês/Ano – Mês/Ano]",
-    description: "[Descreva aqui suas responsabilidades e conquistas nesta posição.]"
-  }
+    company: "Freelancer",
+    role: "Desenvolvedor Freelancer",
+    period: "2020 - 2023",
+    description:
+      "Atuação em projetos diversos, desde landing pages até sistemas complexos de gestão. Experiência com diferentes stacks tecnológicas e metodologias ágeis, desenvolvendo habilidades de comunicação com clientes e gestão de projetos.",
+  },
 ];
 ---
 
@@ -23,21 +25,23 @@ const experiences = [
     </div>
 
     <div class="timeline">
-      {experiences.map((exp, index) => (
-        <div class="timeline-item" style={`--delay: ${index * 0.15}s`}>
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="exp-card">
-              <span class="exp-company">{exp.company}</span>
-              <div class="exp-header">
-                <h3 class="exp-role">{exp.role}</h3>
-                <span class="exp-period">{exp.period}</span>
+      {
+        experiences.map((exp, index) => (
+          <div class="timeline-item" style={`--delay: ${index * 0.15}s`}>
+            <div class="timeline-marker" />
+            <div class="timeline-content">
+              <div class="exp-card">
+                <span class="exp-company">{exp.company}</span>
+                <div class="exp-header">
+                  <h3 class="exp-role">{exp.role}</h3>
+                  <span class="exp-period">{exp.period}</span>
+                </div>
+                <p class="exp-description">{exp.description}</p>
               </div>
-              <p class="exp-description">{exp.description}</p>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
@@ -52,7 +56,7 @@ const experiences = [
   }
 
   .section-label {
-    font-family: 'Courier New', monospace;
+    font-family: "Courier New", monospace;
     font-size: 0.85rem;
     color: var(--text-muted);
     display: block;
@@ -60,7 +64,7 @@ const experiences = [
   }
 
   .section-title {
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 700;
     color: var(--text-primary);
@@ -73,7 +77,7 @@ const experiences = [
   }
 
   .timeline::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 7px;
     top: 0;
@@ -115,7 +119,9 @@ const experiences = [
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 2rem;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease;
   }
 
   .exp-card:hover {
@@ -140,7 +146,7 @@ const experiences = [
   }
 
   .exp-role {
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);

@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -7,12 +7,12 @@ interface Props {
 }
 
 const {
-  title = 'Hudson Moreira — Dev Full Stack',
-  description = 'Portfolio de Hudson Moreira — desenvolvedor full stack especializado em construir interfaces modernas e sistemas robustos, do front ao back.',
+  title = "Hudson Moreira — Dev Full Stack",
+  description = "Portfolio de Hudson Moreira — desenvolvedor full stack especializado em construir interfaces modernas e sistemas robustos, do front ao back.",
 } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR" class="dark">
   <head>
     <meta charset="UTF-8" />
@@ -23,13 +23,11 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/foto-hudson.jpg" />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

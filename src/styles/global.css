@@ -1,7 +1,5 @@
-/* === Fonts === */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400..800&display=swap');
 
-/* === Variables === */
 :root {
   --bg-primary: #0a0a0a;
   --bg-secondary: #111111;
@@ -16,7 +14,6 @@
   --container-max: 1200px;
 }
 
-/* === Reset === */
 *,
 *::before,
 *::after {
@@ -92,8 +89,6 @@ h6 {
   border-width: 0;
 }
 
-/* --- Layout --- */
-
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
@@ -103,8 +98,6 @@ h6 {
 section {
   padding: 6rem 2rem;
 }
-
-/* --- Animations --- */
 
 @keyframes fadeIn {
   from {
@@ -142,8 +135,6 @@ section {
   animation-delay: 0.5s;
 }
 
-/* --- Cards --- */
-
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -156,8 +147,6 @@ section {
   transform: translateY(-4px);
   background: var(--bg-hover);
 }
-
-/* --- Buttons --- */
 
 .btn-download {
   display: inline-flex;
@@ -181,8 +170,6 @@ section {
   color: var(--bg-primary);
   opacity: 1;
 }
-
-/* --- Status Indicator --- */
 
 @keyframes pulseGreen {
   0%,
@@ -210,7 +197,6 @@ section {
   animation: pulseGreen 2s ease-in-out infinite;
 }
 
-/* --- Star Rating --- */
 
 .stars {
   display: inline-flex;
@@ -229,8 +215,6 @@ section {
   color: var(--border);
 }
 
-/* --- Progress Bars --- */
-
 .progress-bar {
   width: 100%;
   height: 4px;
@@ -245,8 +229,6 @@ section {
   border-radius: 99px;
   transition: width 0.6s ease;
 }
-
-/* --- Timeline --- */
 
 .timeline {
   position: relative;
@@ -300,8 +282,6 @@ section {
   font-size: 0.875rem;
   color: var(--text-secondary);
 }
-
-/* --- Accordion / Details --- */
 
 .accordion {
   border-bottom: 1px solid var(--border);
@@ -378,6 +358,7 @@ section {
 @media (min-width: 1024px) {
   main {
     margin-left: 260px;
+    max-width: calc(100vw - 260px);
   }
 
   section {

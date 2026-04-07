@@ -229,6 +229,12 @@ const socialLinks = [
     height: 100%;
     object-fit: cover;
     display: block;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+  }
+
+  .image-wrapper:hover img {
+    filter: grayscale(0%);
   }
 
   /* Desktop */
