@@ -1,0 +1,176 @@
+---
+const links = [
+  { label: "Portfolio", url: "/", emoji: "🌐" },
+  { label: "KutAgenda", url: "https://kutagenda.com.br", emoji: "📅" },
+  {
+    label: "Instagram",
+    url: "https://www.instagram.com/http.hudd/",
+    emoji: "📸",
+  },
+  { label: "GitHub", url: "https://github.com/HudsonDevWeb", emoji: "💻" },
+  {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/hudsondevweb/",
+    emoji: "🔗",
+  },
+  { label: "YouTube", url: null, emoji: "▶" },
+  { label: "Twitch", url: null, emoji: "🟣" },
+];
+---
+
+<section class="links-page">
+  <div class="links-container">
+    <div class="profile">
+      <div class="avatar">
+        <img src="/perfil.avif" alt="Hudson Moreira" width="80" height="80" />
+      </div>
+      <h1 class="profile-name">Hudson Moreira</h1>
+      <p class="profile-role">Dev Full Stack</p>
+    </div>
+
+    <ul class="links-list">
+      {
+        links.map((link) => (
+          <li>
+            {
+              link.url ? (
+                <a
+                  href={link.url}
+                  class="link-button"
+                  target={link.url.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.url.startsWith("http") ? "noopener noreferrer" : undefined
+                  }
+                >
+                  <span class="link-emoji" aria-hidden="true">
+                    {link.emoji}
+                  </span>
+                  <span class="link-label">{link.label}</span>
+                </a>
+              ) : (
+                <span class="link-button link-button--coming-soon">
+                  <span class="link-emoji" aria-hidden="true">
+                    {link.emoji}
+                  </span>
+                  <span class="link-label">{link.label}</span>
+                  <span class="coming-soon">Em breve</span>
+                </span>
+              )
+            }
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .links-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    background: var(--bg-primary);
+  }
+
+  .links-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Profile */
+  .profile {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .profile-name {
+    font-family: "Syne", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .profile-role {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0.25rem 0 0;
+  }
+
+  /* Links */
+  .links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    list-style: none;
+  }
+
+  .link-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .link-button:hover {
+    background: var(--bg-hover);
+    transform: scale(1.02);
+    opacity: 1;
+  }
+
+  .link-emoji {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .link-label {
+    flex: 1;
+  }
+
+  .link-button--coming-soon {
+    opacity: 0.5;
+    cursor: default;
+    justify-content: space-between;
+  }
+
+  .coming-soon {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: 0.03em;
+  }
+</style>

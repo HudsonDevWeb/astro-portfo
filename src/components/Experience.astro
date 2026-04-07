@@ -1,0 +1,200 @@
+---
+const experiences = [
+  {
+    company: "[Nome da Empresa]",
+    role: "[Cargo Ocupado]",
+    period: "[Mês/Ano – Mês/Ano]",
+    description: "[Descreva aqui suas responsabilidades e conquistas nesta posição. Ex: Desenvolvi e mantive APIs RESTful utilizando Node.js e TypeScript, lidando com milhares de requisições por dia.]"
+  },
+  {
+    company: "[Nome da Empresa]",
+    role: "[Cargo Ocupado]",
+    period: "[Mês/Ano – Mês/Ano]",
+    description: "[Descreva aqui suas responsabilidades e conquistas nesta posição.]"
+  }
+];
+---
+
+<section id="experiencia" class="experience-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">// experiência</span>
+      <h2 class="section-title">Onde Já Trabalhei</h2>
+    </div>
+
+    <div class="timeline">
+      {experiences.map((exp, index) => (
+        <div class="timeline-item" style={`--delay: ${index * 0.15}s`}>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="exp-card">
+              <span class="exp-company">{exp.company}</span>
+              <div class="exp-header">
+                <h3 class="exp-role">{exp.role}</h3>
+                <span class="exp-period">{exp.period}</span>
+              </div>
+              <p class="exp-description">{exp.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience-section {
+    padding: 6rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: var(--delay);
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -2rem;
+    top: 0.5rem;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--accent);
+    z-index: 1;
+  }
+
+  .timeline-content {
+    padding-left: 1rem;
+  }
+
+  .exp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .exp-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--text-muted);
+  }
+
+  .exp-company {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .exp-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0 1rem;
+    flex-wrap: wrap;
+  }
+
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .exp-period {
+    font-size: 0.8rem;
+    background: var(--accent-dim);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+
+  .exp-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .experience-section {
+      padding: 4rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    .timeline {
+      padding-left: 1.5rem;
+    }
+
+    .exp-card {
+      padding: 1.5rem;
+    }
+
+    .exp-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+</style>

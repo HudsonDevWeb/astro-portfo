@@ -1,0 +1,403 @@
+---
+const featuredProjects = [
+  {
+    number: '01',
+    name: 'Nome do Projeto',
+    description: 'Breve desci\u00e7\u00e3o do projeto e seu impacto. Substitua este placeholder pela descri\u00e7\u00e3o real do projeto — o problema que resolve, tecnologias envolvidas e resultados alcan\u00e7ados.',
+    stack: ['Next.js', 'Node.js', 'PostgreSQL'],
+    liveUrl: '#',
+    githubUrl: '#',
+    image: '/projects/projeto1.png',
+  },
+  {
+    number: '02',
+    name: 'Nome do Projeto',
+    description: 'Breve desci\u00e7\u00e3o do projeto e seu impacto. Descreva a motiva\u00e7\u00e3o, as decis\u00f5es arquiteturais e os resultados de forma objetiva.',
+    stack: ['React', 'TypeScript', 'MongoDB'],
+    liveUrl: '#',
+    githubUrl: '#',
+    image: '/projects/projeto2.png',
+  },
+  {
+    number: '03',
+    name: 'Nome do Projeto',
+    description: 'Breve desci\u00e7\u00e3o do projeto e seu impacto. Destaque a tecnologia principal e a contribui\u00e7\u00e3o positiva deste trabalho.',
+    stack: ['Python', 'Django', 'Redis'],
+    liveUrl: '#',
+    githubUrl: '#',
+    image: '/projects/projeto3.png',
+  },
+];
+
+const smallerProjects = [
+  {
+    name: 'Projeto Menor 1',
+    description: 'Descri\u00e7\u00e3o curta do projeto.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    githubUrl: '#',
+    liveUrl: '#',
+  },
+  {
+    name: 'Projeto Menor 2',
+    description: 'Descri\u00e7\u00e3o curta do projeto.',
+    stack: ['Python', 'Flask'],
+    githubUrl: '#',
+    liveUrl: '#',
+  },
+];
+---
+
+<section id="projetos" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">// projetos</span>
+      <h2 class="section-title">Trabalhos Selecionados</h2>
+    </div>
+
+    <!-- Featured Projects -->
+    <div class="featured-list">
+      {featuredProjects.map((project, index) => {
+        const reversed = index % 2 === 1;
+        return (
+          <article
+            class:list={['featured-card', { reversed }]}
+            style={`--delay: ${index * 0.15}s`}
+          >
+            <div class="featured-text">
+              <span class="project-number">{project.number}</span>
+              <h3 class="project-title">{project.name}</h3>
+              <p class="project-description">{project.description}</p>
+
+              <div class="project-stack">
+                {project.stack.map((tech) => (
+                  <span class="stack-tag">{tech}</span>
+                ))}
+              </div>
+
+              <div class="project-links">
+                <a href={project.liveUrl} class="project-link" target="_blank" rel="noopener noreferrer">
+                  Ver projeto <span class="arrow">\u2192</span>
+                </a>
+                <a href={project.githubUrl} class="github-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-5.5a2.5 2.5 0 0 0-5 0V22"/><path d="M15 22a2.83 2.83 0 0 0 2-2"/><path d="M9 22a2.83 2.83 0 0 1-2-2"/><path d="M10 16.5a2.83 2.83 0 0 0 4 0"/><path d="M12 12.5a2.83 2.83 0 0 0 0-4"/><path d="M12 8.5V1"/><path d="M12 1H2"/><path d="M12 1h10"/><path d="M2 1h4"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="featured-image">
+              <div class="image-placeholder" role="img" aria-label={`Preview do projeto ${project.name}`}>
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  width="560"
+                  height="360"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- Smaller Projects Accordion -->
+    <details class="more-projects">
+      <summary>
+        <span class="more-icon">+</span>
+        Ver mais projetos
+      </summary>
+      <div class="smaller-grid">
+        {smallerProjects.map((project) => (
+          <div class="small-card">
+            <h4 class="small-title">{project.name}</h4>
+            <p class="small-desc">{project.description}</p>
+            <div class="small-stack">
+              {project.stack.map((tech) => (
+                <span class="stack-tag">{tech}</span>
+              ))}
+            </div>
+            <div class="small-links">
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="small-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-5.5a2.5 2.5 0 0 0-5 0V22"/><path d="M15 22a2.83 2.83 0 0 0 2-2"/><path d="M9 22a2.83 2.83 0 0 1-2-2"/><path d="M12 8.5V1"/><path d="M12 1H2"/><path d="M12 1h10"/></svg>
+                GitHub
+              </a>
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="small-link">
+                Ver <span class="arrow">\u2192</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </details>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    padding: 6rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  /* Featured cards */
+  .featured-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .featured-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .project-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .project-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .stack-tag {
+    font-size: 0.75rem;
+    background: var(--accent-dim);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .project-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .project-link {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: opacity 0.2s ease;
+  }
+
+  .project-link:hover {
+    opacity: 0.8;
+  }
+
+  .project-link .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  .project-link:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  .github-link {
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .github-link:hover {
+    color: var(--text-primary);
+  }
+
+  /* Image */
+  .featured-image {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .image-placeholder {
+    aspect-ratio: 16 / 10;
+    background: var(--bg-secondary);
+    box-shadow: inset 0 0 0 2px dashed var(--border);
+    border-radius: 12px;
+  }
+
+  .image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Reversed layout for alternating cards */
+  @media (min-width: 768px) {
+    .featured-card:not(.reversed) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .featured-card.reversed {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .featured-card:not(.reversed) .featured-text {
+      order: 1;
+    }
+
+    .featured-card:not(.reversed) .featured-image {
+      order: 2;
+    }
+
+    .featured-card.reversed .featured-text {
+      order: 2;
+    }
+
+    .featured-card.reversed .featured-image {
+      order: 1;
+    }
+  }
+
+  /* Accordion for smaller projects */
+  .more-projects {
+    margin-top: 4rem;
+    border-top: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .more-projects summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+  }
+
+  .more-projects summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .more-projects summary:hover {
+    color: var(--text-primary);
+  }
+
+  .more-icon {
+    font-size: 1.25rem;
+  }
+
+  .smaller-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .small-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.3s ease;
+  }
+
+  .small-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .small-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .small-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .small-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .small-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+  }
+
+  .small-link {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.2s ease;
+  }
+
+  .small-link:hover {
+    color: var(--text-primary);
+  }
+
+  @media (min-width: 768px) {
+    .smaller-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
